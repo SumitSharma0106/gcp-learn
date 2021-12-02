@@ -21,4 +21,12 @@ public class EmpController {
     public Emp saveEmp(@RequestBody Emp emp){
         return empRepo.save(emp);
     }
+
+    @GetMapping("/age")
+    public Age getEmployeesCountGreaterThan30(){
+        int empGreaterThan30 = empRepo.getEmpGreaterThan30();
+        Age age=new Age();
+        age.setCount(empGreaterThan30);
+        return age;
+    }
 }
